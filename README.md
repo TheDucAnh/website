@@ -12,7 +12,7 @@
 - Giao diện thân thiện, dễ sử dụng.
 
 ## Cách dùng
-1. Mở file `index.html` trên trình duyệt.
+1. Mở file `index.html` trên trình duyệt hoặc truy cập vào website : https://theducanh.github.io/website/
 2. Sử dụng nút menu trên cùng để chuyển giữa các chế độ: Tiểu học, Cấp 2, Lập trình.
 3. Nhập biểu thức vào ô máy tính, nhấn nút "Tính" để xem kết quả.
 4. Trong phần lập trình, đọc các bài học được hiển thị.
@@ -30,7 +30,8 @@
 ## Tác giả
 - TheDucAnh (ducanh_abc)
 - GitHub: https://github.com/ducanh_abc
-
+- Discord: ducanh_14806
+- Facebook: https://www.facebook.com/profile.php?id=100089981720499
 ---
 
-Cảm ơn bạn đã sử dụng ứng dụng này! Nếu có góp ý hoặc thắc mắc, bạn có thể liên hệ hoặc tạo issue trên GitHub.
+Cảm ơn bạn đã sử dụng ứng dụng này! Nếu có góp ý hoặc thắc mắc, bạn có thể liên hệ qua facebook hoặc tạo issue trên GitHub.
