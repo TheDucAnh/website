@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Máy tính & Lập trình</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="https://i.pinimg.com/736x/47/88/45/478845046a758bba8fa863415d30fc80.jpg" type="image/jpeg" />
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="site-brand">
+        <img src="https://i.pinimg.com/736x/47/88/45/478845046a758bba8fa863415d30fc80.jpg" alt="Logo" class="site-logo" />
+        <span class="site-name">Máy tính & Lập trình</span>
+      </div>
+      <button id="menuBtn" class="btn">Tiểu học ▼</button>
+      <div class="dropdown-wrapper">
+        <button id="leftMenuBtn" class="btn">Lập trình ▼</button>
+        <div id="progDropdown" class="dropdown-menu hidden"></div>
+      </div>
+      <button id="darkModeBtn" class="btn" title="Chuyển sáng/tối">🌙</button>
+    </div>
+  </header>
+
+  <main>
+    <section id="calculatorPrimary" class="calculator-section">
+      <h2>Máy tính Tiểu học</h2>
+      <input id="expressionPrimary" type="text" placeholder="Nhập biểu thức (ví dụ: 2+3*4)" />
+      <button id="calcBtnPrimary" class="btn calc-btn">Tính</button>
+      <p id="resultPrimary" class="result"></p>
+    </section>
+
+    <section id="calculatorSecondary" class="calculator-section hidden">
+      <h2>Máy tính Cấp 2</h2>
+      <input id="expressionSecondary" type="text" placeholder="Hỗ trợ ^, sqrt (ví dụ: sqrt(16)+2^3)" />
+      <button id="calcBtnSecondary" class="btn calc-btn">Tính</button>
+      <p style="font-size: 0.9rem; color: #555; margin-top: 8px;">
+        * Dùng <code>^</code> để tính lũy thừa (mũ), ví dụ: <code>2^3 = 8</code>.<br/>
+        * Dùng <code>sqrt(x)</code> để tính căn bậc hai, ví dụ: <code>sqrt(16) = 4</code>.
+      </p>
+      <p id="resultSecondary" class="result"></p>
+    </section>
+
+    <section id="programmingContent" class="programming-section hidden">
+      <h2 id="programmingTitle">Bài học lập trình</h2>
+      <pre id="programmingDescription" class="programming-desc"></pre>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    Được phát triển bởi: ducanh_abc
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

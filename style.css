@@ -1,0 +1,295 @@
+/* Reset & base */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f0f2f5;
+  color: #333;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Dark mode */
+body.dark {
+  background: #121212;
+  color: #ddd;
+}
+
+/* Header */
+header {
+  background-color: #1e90ff;
+  padding: 12px 16px;
+  box-shadow: 0 2px 5px rgb(0 0 0 / 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+}
+
+header .container {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 1000px;
+  gap: 12px;
+}
+
+/* Logo và tên trang */
+.site-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-right: auto;
+}
+
+.site-logo {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.site-name {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: white;
+}
+
+/* Nút chung */
+.btn {
+  background-color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgb(0 0 0 / 0.1);
+  user-select: none;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.btn:hover {
+  background-color: #e0e7ff;
+  box-shadow: 0 4px 12px rgb(30 144 255 / 0.3);
+}
+
+/* Khi body là dark thì nút sáng tối có màu đặc biệt */
+body.dark .btn {
+  background-color: #333;
+  color: #eee;
+}
+
+body.dark .btn:hover {
+  background-color: #555;
+}
+
+/* Container chính */
+main {
+  flex: 1;
+  max-width: 900px;
+  margin: 24px auto;
+  padding: 0 16px;
+  width: 100%;
+}
+
+/* Sections */
+.calculator-section,
+.programming-section {
+  background: white;
+  padding: 24px 28px;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgb(0 0 0 / 0.05);
+  margin-bottom: 24px;
+  min-height: 320px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body.dark .calculator-section,
+body.dark .programming-section {
+  background: #222;
+  color: #ddd;
+}
+
+/* Hidden class */
+.hidden {
+  display: none !important;
+}
+
+/* Titles */
+.calculator-section h2,
+.programming-section h2 {
+  margin-bottom: 18px;
+  color: #1e90ff;
+  font-weight: 700;
+}
+
+body.dark .calculator-section h2,
+body.dark .programming-section h2 {
+  color: #63b3ed;
+}
+
+/* Input */
+input[type="text"] {
+  width: 100%;
+  padding: 12px 16px;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 1.8px solid #d1d5db;
+  outline-offset: 3px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+}
+
+input[type="text"]:focus {
+  border-color: #1e90ff;
+  box-shadow: 0 0 10px rgb(30 144 255 / 0.35);
+}
+
+body.dark input[type="text"] {
+  background-color: #333;
+  color: #ddd;
+  border-color: #555;
+}
+
+/* Result text */
+.result {
+  margin-top: 16px;
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: #222;
+  min-height: 30px;
+}
+
+body.dark .result {
+  color: #eee;
+}
+
+/* Programming description */
+.programming-desc {
+  white-space: pre-wrap;
+  font-family: 'Consolas', 'Courier New', monospace;
+  background: #f9fafb;
+  padding: 20px 24px;
+  border-radius: 10px;
+  border: 1.5px solid #cbd5e1;
+  max-height: 500px;
+  overflow-y: auto;
+  line-height: 1.5;
+  color: #2d3748;
+  user-select: text;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+body.dark .programming-desc {
+  background: #333;
+  color: #ccc;
+  border-color: #555;
+}
+
+/* Calculate button */
+.calc-btn {
+  margin-top: 14px;
+  width: 100%;
+  max-width: 140px;
+  background-color: #1e90ff;
+  color: white;
+  font-weight: 700;
+  font-size: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgb(30 144 255 / 0.6);
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.calc-btn:hover {
+  background-color: #005fcc;
+  box-shadow: 0 6px 16px rgb(0 95 204 / 0.8);
+}
+
+body.dark .calc-btn {
+  background-color: #3b82f6;
+  box-shadow: 0 4px 10px rgba(59, 130, 246, 0.8);
+}
+
+body.dark .calc-btn:hover {
+  background-color: #2563eb;
+  box-shadow: 0 6px 16px rgba(37, 99, 235, 0.8);
+}
+
+/* Dropdown wrapper */
+.dropdown-wrapper {
+  position: relative;
+}
+
+/* Dropdown menu style */
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgb(0 0 0 / 0.15);
+  padding: 6px 0;
+  min-width: 180px;
+  z-index: 3000;
+  user-select: none;
+  transition: opacity 0.25s ease;
+}
+
+body.dark .dropdown-menu {
+  background: #333;
+  box-shadow: 0 8px 20px rgb(0 0 0 / 0.7);
+  color: #ddd;
+}
+
+.dropdown-menu.hidden {
+  display: none;
+  opacity: 0;
+}
+
+.dropdown-item {
+  padding: 12px 24px;
+  cursor: pointer;
+  font-weight: 600;
+  color: #1e40af;
+  transition: background-color 0.25s ease;
+}
+
+body.dark .dropdown-item {
+  color: #93c5fd;
+}
+
+.dropdown-item:hover {
+  background-color: #e0e7ff;
+}
+
+body.dark .dropdown-item:hover {
+  background-color: #2563eb;
+  color: white;
+}
+
+/* Footer */
+.site-footer {
+  position: fixed;
+  bottom: 10px;
+  right: 16px;
+  font-size: 0.85rem;
+  color: rgba(0, 0, 0, 0.3);
+  font-style: italic;
+  pointer-events: none;
+  z-index: 100;
+}
+
+body.dark .site-footer {
+  color: rgba(255, 255, 255, 0.4);
+}
