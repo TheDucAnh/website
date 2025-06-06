@@ -12,7 +12,7 @@
 - Giao diện thân thiện, dễ sử dụng.
 
 ## Cách dùng
-1. Mở file `index.html` trên trình duyệt hoặc truy cập vào trang web: https://theducanh.github.io/website/
+1. Mở file `index.html` trên trình duyệt.
 2. Sử dụng nút menu trên cùng để chuyển giữa các chế độ: Tiểu học, Cấp 2, Lập trình.
 3. Nhập biểu thức vào ô máy tính, nhấn nút "Tính" để xem kết quả.
 4. Trong phần lập trình, đọc các bài học được hiển thị.
@@ -28,8 +28,9 @@
 - `script.js`: file JavaScript xử lý logic
 
 ## Tác giả
-- Duc Anh (ducanh_abc)
+- TheDucAnh (ducanh_abc)
 - GitHub: https://github.com/ducanh_abc
-▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
-Cảm ơn bạn đã sử dụng website này ! Nếu có góp ý hoặc thắc mắc, bạn có thể liên hệ hoặc tạo issue trên GitHub.
-Please kindly forgive any mistakes or imperfections as the author is only 12 years old
+
+---
+
+Cảm ơn bạn đã sử dụng ứng dụng này! Nếu có góp ý hoặc thắc mắc, bạn có thể liên hệ hoặc tạo issue trên GitHub.
