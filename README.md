@@ -1,4 +1,4 @@
-# Máy tính & Lập trình
+# Máy tính & Lập Trình
 
 ## Mô tả
 Đây là một ứng dụng web đơn giản giúp người dùng có thể sử dụng máy tính cho học sinh tiểu học và cấp 2, đồng thời học lập trình cơ bản với các bài học tích hợp sẵn. Ứng dụng cũng có chế độ giao diện Sáng/Tối để người dùng dễ dàng thay đổi theo sở thích.
