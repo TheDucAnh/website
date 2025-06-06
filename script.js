@@ -96,7 +96,7 @@ console.log("Hello, World!"); /* In ra màn hình console */
 
 // Biến (Variables) và Gán giá trị
 let age = 25; // Sử dụng let hoặc const
-const name = "ChatGPT"; // const cho hằng số hoặc biến không thay đổi
+const name = "ducanh_abc"; // const cho hằng số hoặc biến không thay đổi
 
 // Hằng số (Constants) - Khai báo với const, quy ước viết HOA
 const PI = 3.14159;
