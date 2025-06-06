@@ -29,7 +29,7 @@
 
 ## Tác giả
 - TheDucAnh (ducanh_abc)
-- GitHub: https://github.com/ducanh_abc
+- GitHub: https://github.com/TheDucAnh
 - Discord: ducanh_14806
 - Facebook: https://www.facebook.com/profile.php?id=100089981720499
 ---
