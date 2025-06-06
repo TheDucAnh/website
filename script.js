@@ -19,14 +19,14 @@ print("Hello, World!")
 
 # Biến và kiểu dữ liệu
 x = 5
-y = "ChatGPT"
+y = "Killua"
 print(x, y)`,
   "JavaScript": `// JavaScript cơ bản
 console.log("Hello, World!");
 
 // Biến và kiểu dữ liệu
 let x = 5;
-let y = "ChatGPT";
+let y = "Gon";
 console.log(x, y);`,
   "C++": `// C++ cơ bản
 #include <iostream>
