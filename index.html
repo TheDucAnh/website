@@ -1,57 +1,123 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Máy tính & Lập trình</title>
-  <link rel="stylesheet" href="style.css" />
-  <link rel="icon" href="https://i.pinimg.com/736x/47/88/45/478845046a758bba8fa863415d30fc80.jpg" type="image/jpeg" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Máy Tính & Lập Trình</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="https://i.pinimg.com/736x/47/88/45/478845046a758bba8fa863415d30fc80.jpg" type="image/jpeg" />
 </head>
 <body>
-  <header>
-    <div class="container">
-      <div class="site-brand">
-        <img src="https://i.pinimg.com/736x/47/88/45/478845046a758bba8fa863415d30fc80.jpg" alt="Logo" class="site-logo" />
-        <span class="site-name">Máy tính & Lập trình</span>
-      </div>
-      <button id="menuBtn" class="btn">Tiểu học ▼</button>
-      <div class="dropdown-wrapper">
-        <button id="leftMenuBtn" class="btn">Lập trình ▼</button>
-        <div id="progDropdown" class="dropdown-menu hidden"></div>
-      </div>
-      <button id="darkModeBtn" class="btn" title="Chuyển sáng/tối">🌙</button>
+    <header>
+        <div class="container">
+            <div class="site-brand" id="siteBrandBtn">
+                <img src="https://i.pinimg.com/736x/47/88/45/478845046a758bba8fa863415d30fc80.jpg" alt="C4C Logo" class="site-logo" />
+                <span class="site-name">Máy Tính & Lập Trình</span>
+            </div>
+            
+            <div class="header-menu-right">
+                <button id="openSidebarBtn" class="btn">Menu</button>
+                <button id="darkModeBtn" class="btn" title="Chuyển sáng/tối">🌙</button>
+            </div>
+        </div>
+    </header>
+
+    <div id="sidebarMenu" class="sidebar-menu">
+        <button id="closeSidebarBtn" class="close-btn">&times;</button> <div class="sidebar-content">
+            <h3>Menu chính</h3>
+            <ul>
+                <li class="menu-category">Máy tính</li>
+                <li><a href="#" class="sidebar-item" data-section="calculatorPrimary">Máy tính Tiểu học</a></li>
+                <li><a href="#" class="sidebar-item" data-section="calculatorSecondary">Máy tính Cấp 2</a></li>
+                <li class="menu-category">Lập trình</li>
+                <li class="menu-category">Cộng đồng</li>
+                <li><a href="#" class="sidebar-item" data-section="forumContent">Diễn Đàn</a></li>
+            </ul>
+        </div>
     </div>
-  </header>
+    <div id="overlay" class="overlay"></div>
 
-  <main>
-    <section id="calculatorPrimary" class="calculator-section">
-      <h2>Máy tính Tiểu học</h2>
-      <input id="expressionPrimary" type="text" placeholder="Nhập biểu thức (ví dụ: 2+3*4)" />
-      <button id="calcBtnPrimary" class="btn calc-btn">Tính</button>
-      <p id="resultPrimary" class="result"></p>
-    </section>
+    <main>
+        <section id="homepageContent" class="homepage-section">
+            <div class="homepage-content-box">
+                <h1 class="homepage-title">Trang Chủ</h1>
+                <div class="homepage-description-box">
+                    <p class="homepage-welcome">Chào mừng bạn đến với Máy Tính & Lập Trình!</p>
+                    <p>Đây là nơi bạn có thể học hỏi, chia sẻ kiến thức và phát triển kỹ năng về lập trình!
+                    <p>Để kết nối và nhận hỗ trợ từ cộng đồng, hãy <a href="https://discord.gg/nWZ9q4JUBn" target="_blank" rel="noopener noreferrer">Tham gia server Discord của chúng tôi</a>!</p>
+                </div>
+            </div>
+        </section>
 
-    <section id="calculatorSecondary" class="calculator-section hidden">
-      <h2>Máy tính Cấp 2</h2>
-      <input id="expressionSecondary" type="text" placeholder="Hỗ trợ ^, sqrt (ví dụ: sqrt(16)+2^3)" />
-      <button id="calcBtnSecondary" class="btn calc-btn">Tính</button>
-      <p style="font-size: 0.9rem; color: #555; margin-top: 8px;">
-        * Dùng <code>^</code> để tính lũy thừa (mũ), ví dụ: <code>2^3 = 8</code>.<br/>
-        * Dùng <code>sqrt(x)</code> để tính căn bậc hai, ví dụ: <code>sqrt(16) = 4</code>.
-      </p>
-      <p id="resultSecondary" class="result"></p>
-    </section>
+        <section id="calculatorPrimary" class="calculator-section hidden">
+            <h2>Máy tính Tiểu học</h2>
+            <input id="expressionPrimary" type="text" placeholder="Nhập biểu thức (ví dụ: 2+3*4)" />
+            <button id="calcBtnPrimary" class="btn calc-btn">Tính</button>
+            <p id="resultPrimary" class="result"></p>
+        </section>
 
-    <section id="programmingContent" class="programming-section hidden">
-      <h2 id="programmingTitle">Bài học lập trình</h2>
-      <pre id="programmingDescription" class="programming-desc"></pre>
-    </section>
-  </main>
+        <section id="calculatorSecondary" class="calculator-section hidden">
+            <h2>Máy tính Cấp 2</h2>
+            <input id="expressionSecondary" type="text" placeholder="Hỗ trợ ^, sqrt (ví dụ: sqrt(16)+2^3)" />
+            <button id="calcBtnSecondary" class="btn calc-btn">Tính</button>
+            <p style="font-size: 0.9rem; color: #555; margin-top: 8px;">
+                * Dùng <code>^</code> để tính lũy thừa (mũ), ví dụ: <code>2^3 = 8</code>.<br/>
+                * Dùng <code>sqrt(x)</code> để tính căn bậc hai, ví dụ: <code>sqrt(16) = 4</code>.
+            </p>
+            <p id="resultSecondary" class="result"></p>
+        </section>
 
-  <footer class="site-footer">
-    Được phát triển bởi: ducanh_abc
-  </footer>
+        <section id="programmingContent" class="programming-section hidden">
+            <h2 id="programmingTitle">Bài học lập trình</h2>
+            <pre id="programmingDescription" class="programming-desc"></pre>
+        </section>
 
-  <script src="script.js"></script>
+        <section id="forumContent" class="forum-section hidden">
+            <h2>Diễn Đàn</h2>
+            <div id="authContainer" class="auth-container">
+                <div id="loginForm">
+                    <h3>Đăng nhập</h3>
+                    <input type="text" id="loginUsername" placeholder="Tên tài khoản" required />
+                    <input type="password" id="loginPassword" placeholder="Mật khẩu" required />
+                    <button id="loginBtn" class="btn">Đăng nhập</button>
+                    <p>Chưa có tài khoản? <a href="#" id="showRegisterForm">Đăng ký ngay</a></p>
+                    <p id="loginMessage" class="auth-message"></p>
+                </div>
+                <div id="registerForm" class="hidden">
+                    <h3>Đăng ký</h3>
+                    <input type="text" id="registerUsername" placeholder="Tên tài khoản mới" required />
+                    <input type="password" id="registerPassword" placeholder="Mật khẩu mới" required />
+                    <button id="registerBtn" class="btn">Đăng ký</button>
+                    <p>Đã có tài khoản? <a href="#" id="showLoginForm">Đăng nhập</a></p>
+                    <p id="registerMessage" class="auth-message"></p>
+                </div>
+            </div>
+
+            <div id="postContainer" class="post-container hidden">
+                <div class="user-info">
+                    Chào mừng, <span id="loggedInUsername"></span>! 
+                    <button id="logoutBtn" class="btn small-btn">Đăng xuất</button>
+                </div>
+                <h3>Đăng bài mới</h3>
+                <input type="text" id="postTitle" placeholder="Tiêu đề bài viết" required />
+                <textarea id="postContent" placeholder="Nội dung bài viết" rows="6" required></textarea>
+                <button id="submitPostBtn" class="btn">Đăng bài</button>
+                <p id="postMessage" class="auth-message"></p>
+
+                <hr style="margin: 25px 0; border-color: #eee;">
+
+                <h3>Các bài viết</h3>
+                <div id="forumPosts">
+                    <p class="no-posts">Chưa có bài viết nào. Hãy là người đầu tiên đăng bài!</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        Được phát triển bởi: ducanh_abc - Sinh năm 2013, thuộc thế hệ Alpha. Nếu bạn cần thêm thông tin, đừng ngần ngại hỏi!
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
