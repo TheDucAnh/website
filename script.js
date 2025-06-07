@@ -664,7 +664,7 @@ public class MethodExample {
 Phương thức là một khối mã thực hiện một nhiệm vụ cụ thể và có thể được gọi từ các phần khác của chương trình.`,
 };
 
-// Mới: Ánh xạ ngôn ngữ với đường dẫn logo
+// Mới: Ánh xạ ngôn ngữ với đường dẫn logo (Đã Cập Nhật Theo Link Bạn Cung Cấp)
 const languageLogos = {
     "Python": "https://i.pinimg.com/736x/ed/66/63/ed666327dd3ce274d94f2b3547155891.jpg",
     "JavaScript": "https://i.pinimg.com/736x/37/fc/63/37fc630b338d68d18b5fe5fde855562e.jpg",
@@ -684,25 +684,6 @@ function hideAllSections() {
     forumContent.classList.add('hidden');
 }
 
-// Hàm cập nhật giao diện người dùng diễn đàn
-function updateForumUI() {
-    // Hiển thị phần đăng nhập/đăng ký hoặc phần đăng bài
-    if (currentLoggedInUser) {
-        authContainer.classList.add('hidden');
-        postContainer.classList.remove('hidden');
-        loggedInUsernameSpan.textContent = currentLoggedInUser;
-    } else {
-        authContainer.classList.remove('hidden');
-        postContainer.classList.add('hidden');
-        loginForm.classList.remove('hidden');
-        registerForm.classList.add('hidden');
-    }
-    
-    // Luôn luôn hiển thị các bài đăng, bất kể người dùng đã đăng nhập hay chưa
-    renderForumPosts(); 
-}
-
-
 // Hiển thị một phần nội dung cụ thể
 function showSection(sectionElement) {
     hideAllSections();
@@ -710,11 +691,7 @@ function showSection(sectionElement) {
     closeSidebar();
 
     if (sectionElement === forumContent) {
-        updateForumUI(); // Gọi updateForumUI để cập nhật giao diện diễn đàn và hiển thị bài đăng
-    }
-    // Chạy lại highlight cú pháp nếu phần được hiển thị là nội dung lập trình
-    if (sectionElement === programmingContent) {
-        hljs.highlightAll(); // Yêu cầu Highlight.js tìm và highlight tất cả các khối code
+        updateForumUI();
     }
 }
 
@@ -786,10 +763,8 @@ function renderProgrammingLessonsInSidebar() {
 
             // Cập nhật programmingTitle sử dụng innerHTML để chèn thẻ img
             programmingTitle.innerHTML = `${logoHtml} Bài học lập trình: ${lang}`;
-            programmingDescription.innerHTML = programmingLessons[lang]; // Đổi textContent thành innerHTML để Markdown hoạt động
+            programmingDescription.textContent = programmingLessons[lang];
             showSection(programmingContent);
-            // Sau khi nội dung được thêm, gọi highlight.js để làm nổi bật cú pháp
-            hljs.highlightAll(); 
         });
         li.appendChild(a);
         return li;
@@ -815,6 +790,8 @@ function renderProgrammingLessonsInSidebar() {
 
 
 // Gắn sự kiện cho các mục trong sidebar menu (đảm bảo không bị trùng lặp)
+// Đã xử lý listener trong createLessonItem ở trên, phần này có thể loại bỏ hoặc giữ lại
+// nếu có các item khác không phải programming lesson.
 document.querySelectorAll('.sidebar-item').forEach(item => {
     // Chỉ thêm listener nếu chưa có (tránh thêm nhiều lần nếu gọi renderProgrammingLessonsInSidebar lại)
     if (!item.hasAttribute('data-listener-added')) {
@@ -853,246 +830,243 @@ function safeCalculate(expression, allowAdvanced = false) {
 
     if (allowAdvanced) {
         // Escape any backticks within the expression that might interfere with Math.sqrt or Math.pow
-        expression = expression
-            .replace(/sqrt\(([^)]+)\)/g, 'Math.sqrt($1)')
-            .replace(/pow\(([^,]+),([^)]+)\)/g, 'Math.pow($1,$2)');
+        expression = expression.replace(/`/g, '\\`');
+        expression = expression.replace(/sqrt\(([^)]+)\)/g, 'Math.sqrt($1)');
+        // Sửa lỗi ở đây: dùng Math.pow thay vì ** để đảm bảo tương thích và tránh hiểu lầm
+        expression = expression.replace(/(\d+(\.\d+)?)\^(\d+(\.\d+)?)/g, 'Math.pow($1, $3)');
     }
 
-    // List of allowed characters and operations
-    const allowedChars = /^[0-9+\-*/%.() ]+$/;
-    if (allowAdvanced) {
-        // Add specific characters/patterns for advanced functions if needed
-        // For example, if you allow 'sqrt', 'pow', you might add them to the regex.
-        // For simplicity and safety, the .replace above transforms them to Math. functions.
-        // So the regex still focuses on what remains after transformation.
-        // This regex allows Math. keywords after the replacements.
-        const advancedAllowedChars = /^[0-9+\-*/%.()Mtha\.]+\s*$/; 
-        if (!advancedAllowedChars.test(expression)) {
-            return "Lỗi: Biểu thức chứa ký tự không hợp lệ.";
-        }
-    } else {
-        if (!allowedChars.test(expression)) {
-            return "Lỗi: Biểu thức chỉ được chứa số và các toán tử cơ bản (+ - * / %).";
-        }
+    // Regex kiểm tra ký tự hợp lệ. Đã thêm `.` cho số thập phân.
+    // Thêm `\^` để thoát ký tự mũ nếu muốn khớp với ký tự `^` literal trong biểu thức
+    const validCharsRegex = allowAdvanced ? /^[0-9+\-*/().,\^Math]+$/i : /^[0-9+\-*/().]+$/;
+    if (!validCharsRegex.test(expression)) {
+        throw new Error('Biểu thức chứa ký tự không hợp lệ.');
     }
 
     try {
-        // Basic check to prevent some common malicious inputs (though not foolproof for all)
-        if (expression.includes('constructor') || expression.includes('prototype') || expression.includes('__')) {
-            return "Lỗi: Biểu thức không an toàn.";
-        }
-
-        // Using Function constructor for evaluation is generally risky, but for a calculator with
-        // strict input validation, it's a common approach.
-        // Ensure that only valid characters and mathematical operations are allowed.
-        const result = new Function('return ' + expression)();
-        
-        if (isNaN(result) || !isFinite(result)) {
-            return "Lỗi: Phép tính không hợp lệ.";
-        }
-        return result;
+        // Sử dụng eval() với sự cẩn trọng sau khi đã lọc input
+        // Hoặc tốt hơn là dùng một thư viện parser biểu thức nếu cần độ an toàn cao hơn trong dự án lớn
+        return eval(expression);
     } catch (e) {
-        return "Lỗi: Biểu thức không hợp lệ.";
+        throw new Error('Biểu thức không hợp lệ hoặc lỗi cú pháp.');
     }
 }
 
-
-// --- Chức năng chuyển đổi Dark Mode ---
-darkModeBtn.addEventListener('click', () => {
-    document.body.classList.toggle('dark');
-    // Lưu trạng thái dark mode vào localStorage
-    if (document.body.classList.contains('dark')) {
-        localStorage.setItem('darkMode', 'enabled');
-    } else {
-        localStorage.setItem('darkMode', 'disabled');
+document.getElementById('calcBtnPrimary').addEventListener('click', () => {
+    const exp = document.getElementById('expressionPrimary').value;
+    try {
+        const res = safeCalculate(exp, false);
+        document.getElementById('resultPrimary').textContent = 'Kết quả: ' + res;
+        document.getElementById('resultPrimary').style.color = '#28a745';
+    } catch (e) {
+        document.getElementById('resultPrimary').textContent = 'Lỗi: ' + e.message;
+        document.getElementById('resultPrimary').style.color = '#dc3545';
     }
 });
 
-// Kiểm tra trạng thái dark mode khi tải trang
-if (localStorage.getItem('darkMode') === 'enabled') {
-    document.body.classList.add('dark');
+document.getElementById('calcBtnSecondary').addEventListener('click', () => {
+    const exp = document.getElementById('expressionSecondary').value;
+    try {
+        const res = safeCalculate(exp, true);
+        document.getElementById('resultSecondary').textContent = 'Kết quả: ' + res;
+        document.getElementById('resultSecondary').style.color = '#28a745';
+    } catch (e) {
+        document.getElementById('resultSecondary').textContent = 'Lỗi: ' + e.message;
+        document.getElementById('resultSecondary').style.color = '#dc3545';
+    }
+});
+
+// --- Nút bật tắt sáng tối ---
+
+function loadDarkModeState() {
+    const isDark = localStorage.getItem('darkMode') === 'true';
+    if (isDark) {
+        document.body.classList.add('dark');
+        darkModeBtn.textContent = '☀️';
+    } else {
+        document.body.classList.remove('dark');
+        darkModeBtn.textContent = '🌙';
+    }
 }
 
+darkModeBtn.addEventListener('click', () => {
+    document.body.classList.toggle('dark');
+    const isDark = document.body.classList.contains('dark');
+    if (isDark) {
+        darkModeBtn.textContent = '☀️';
+    } else {
+        darkModeBtn.textContent = '🌙';
+    }
+    localStorage.setItem('darkMode', isDark);
+});
 
-// --- Xử lý Form Đăng nhập/Đăng ký Diễn đàn ---
+// --- Forum Logic ---
 
-// Lưu tài khoản vào localStorage
 function saveAccounts() {
     localStorage.setItem('forumAccounts', JSON.stringify(accounts));
 }
 
-// Xử lý đăng ký
-registerForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const username = registerUsernameInput.value.trim();
-    const password = registerPasswordInput.value.trim();
-
-    if (!username || !password) {
-        registerMessage.textContent = 'Vui lòng nhập đầy đủ tên người dùng và mật khẩu.';
-        registerMessage.style.color = 'red';
-        return;
-    }
-    if (accounts[username]) {
-        registerMessage.textContent = 'Tên người dùng đã tồn tại.';
-        registerMessage.style.color = 'red';
-    } else {
-        accounts[username] = password; // Lưu mật khẩu plaintext (KHÔNG AN TOÀN TRONG THỰC TẾ)
-        saveAccounts();
-        registerMessage.textContent = 'Đăng ký thành công! Bạn có thể đăng nhập ngay bây giờ.';
-        registerMessage.style.color = 'green';
-        registerUsernameInput.value = '';
-        registerPasswordInput.value = '';
-        // Chuyển về form đăng nhập sau khi đăng ký thành công
-        loginForm.classList.remove('hidden');
-        registerForm.classList.add('hidden');
-        loginMessage.textContent = ''; // Xóa thông báo cũ
-    }
-});
-
-// Xử lý đăng nhập
-loginForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const username = loginUsernameInput.value.trim();
-    const password = loginPasswordInput.value.trim();
-
-    if (accounts[username] && accounts[username] === password) {
-        currentLoggedInUser = username;
-        localStorage.setItem('currentLoggedInForumUser', username);
-        loginMessage.textContent = 'Đăng nhập thành công!';
-        loginMessage.style.color = 'green';
-        loginUsernameInput.value = '';
-        loginPasswordInput.value = '';
-        updateForumUI(); // Cập nhật giao diện sau khi đăng nhập
-    } else {
-        loginMessage.textContent = 'Tên người dùng hoặc mật khẩu không đúng.';
-        loginMessage.style.color = 'red';
-    }
-});
-
-// Xử lý đăng xuất
-logoutBtn.addEventListener('click', () => {
-    currentLoggedInUser = null;
-    localStorage.removeItem('currentLoggedInForumUser');
-    postTitleInput.value = '';
-    postContentTextarea.value = '';
-    postMessage.textContent = '';
-    updateForumUI(); // Cập nhật giao diện sau khi đăng xuất
-});
-
-// Chuyển đổi giữa form đăng nhập và đăng ký
-showRegisterFormBtn.addEventListener('click', () => {
-    loginForm.classList.add('hidden');
-    registerForm.classList.remove('hidden');
-    loginMessage.textContent = ''; // Clear messages when switching forms
-    registerMessage.textContent = '';
-});
-
-showLoginFormBtn.addEventListener('click', () => {
-    registerForm.classList.add('hidden');
-    loginForm.classList.remove('hidden');
-    registerMessage.textContent = ''; // Clear messages when switching forms
-    loginMessage.textContent = '';
-});
-
-
-// --- Xử lý Bài đăng Diễn đàn ---
-
-// Lưu bài đăng vào localStorage
-function saveForumPosts() {
+function savePosts() {
     localStorage.setItem('forumPosts', JSON.stringify(forumPosts));
 }
 
-// Render các bài đăng ra giao diện
-function renderForumPosts() {
-    forumPostsDiv.innerHTML = ''; // Xóa các bài đăng cũ
+function displayMessage(element, message, isSuccess = false) {
+    element.textContent = message;
+    element.classList.remove('success', 'error');
+    if (isSuccess) {
+        element.classList.add('success');
+    } else {
+        element.classList.add('error');
+    }
+    element.classList.remove('hidden');
+    // Đảm bảo ẩn thông báo sau 3 giây
+    setTimeout(() => {
+        element.textContent = '';
+        element.classList.add('hidden');
+    }, 3000);
+}
+
+function clearAuthMessages() {
+    loginMessage.textContent = '';
+    loginMessage.classList.add('hidden');
+    registerMessage.textContent = '';
+    registerMessage.classList.add('hidden');
+    postMessage.textContent = '';
+    postMessage.classList.add('hidden');
+}
+
+function updateForumUI() {
+    clearAuthMessages();
+    if (currentLoggedInUser) {
+        authContainer.classList.add('hidden');
+        postContainer.classList.remove('hidden');
+        loggedInUsernameSpan.textContent = currentLoggedInUser;
+        loadForumPosts();
+    } else {
+        authContainer.classList.remove('hidden');
+        postContainer.classList.add('hidden');
+        forumPostsDiv.innerHTML = '<p class="no-posts">Hãy đăng nhập để xem và đăng bài viết.</p>';
+    }
+}
+
+function loadForumPosts() {
+    forumPosts = JSON.parse(localStorage.getItem('forumPosts')) || [];
+
     if (forumPosts.length === 0) {
-        forumPostsDiv.innerHTML = '<p class="no-posts-message">Chưa có bài đăng nào. Hãy là người đầu tiên đăng bài!</p>';
+        forumPostsDiv.innerHTML = '<p class="no-posts">Chưa có bài viết nào. Hãy là người đầu tiên đăng bài!</p>';
         return;
     }
 
-    // Sắp xếp bài đăng theo thời gian giảm dần (bài mới nhất lên đầu)
+    forumPostsDiv.innerHTML = '';
+
     const sortedPosts = [...forumPosts].sort((a, b) => b.timestamp - a.timestamp);
 
-    sortedPosts.forEach((post, index) => {
+    sortedPosts.forEach(post => {
         const postElement = document.createElement('div');
-        postElement.classList.add('forum-post-item');
-
-        const date = new Date(post.timestamp);
-        const formattedDate = date.toLocaleDateString('vi-VN', {
-            year: 'numeric',
-            month: 'long',
-            day: 'numeric',
-            hour: '2-digit',
-            minute: '2-digit',
-            second: '2-digit'
-        });
-
+        postElement.classList.add('forum-post');
         postElement.innerHTML = `
-            <h3>${escapeHTML(post.title)}</h3>
-            <p class="post-meta">Đăng bởi: <strong>${escapeHTML(post.author)}</strong> vào lúc ${formattedDate}</p>
-            <div class="post-content-display">${escapeHTML(post.content)}</div>
-            ${currentLoggedInUser === post.author ? `<button class="delete-post-btn" data-index="${post.timestamp}">Xóa</button>` : ''}
+            <h4>${post.title}</h4>
+            <p>${post.content}</p>
+            <div class="post-meta">Đăng bởi ${post.author} vào ${new Date(post.timestamp).toLocaleString('vi-VN')}</div>
         `;
         forumPostsDiv.appendChild(postElement);
     });
-
-    // Gắn sự kiện cho nút xóa bài đăng
-    document.querySelectorAll('.delete-post-btn').forEach(button => {
-        button.addEventListener('click', (e) => {
-            // Sử dụng timestamp để tìm bài đăng cần xóa
-            const timestampToDelete = parseInt(e.target.dataset.index);
-            forumPosts = forumPosts.filter(post => post.timestamp !== timestampToDelete);
-            saveForumPosts();
-            renderForumPosts(); // Render lại danh sách sau khi xóa
-        });
-    });
 }
 
-// Xử lý khi người dùng gửi bài đăng mới
+showRegisterFormBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    loginForm.classList.add('hidden');
+    registerForm.classList.remove('hidden');
+    clearAuthMessages();
+});
+
+showLoginFormBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    registerForm.classList.add('hidden');
+    loginForm.classList.remove('hidden');
+    clearAuthMessages();
+});
+
+registerBtn.addEventListener('click', () => {
+    const username = registerUsernameInput.value.trim();
+    const password = registerPasswordInput.value;
+
+    if (!username || !password) {
+        displayMessage(registerMessage, 'Tên tài khoản và mật khẩu không được để trống.', false);
+        return;
+    }
+    if (accounts[username]) {
+        displayMessage(registerMessage, 'Tên tài khoản đã tồn tại.', false);
+        return;
+    }
+
+    accounts[username] = password;
+    saveAccounts();
+    displayMessage(registerMessage, 'Đăng ký thành công! Vui lòng đăng nhập.', true);
+    registerUsernameInput.value = '';
+    registerPasswordInput.value = '';
+    setTimeout(() => {
+        showLoginFormBtn.click();
+    }, 1500);
+});
+
+loginBtn.addEventListener('click', () => {
+    const username = loginUsernameInput.value.trim();
+    const password = loginPasswordInput.value;
+
+    if (!username || !password) {
+        displayMessage(loginMessage, 'Tên tài khoản và mật khẩu không được để trống.', false);
+        return;
+    }
+    if (accounts[username] && accounts[username] === password) {
+        currentLoggedInUser = username;
+        localStorage.setItem('currentLoggedInForumUser', currentLoggedInUser);
+        displayMessage(loginMessage, 'Đăng nhập thành công!', true);
+        loginUsernameInput.value = '';
+        loginPasswordInput.value = '';
+        updateForumUI();
+    } else {
+        displayMessage(loginMessage, 'Tên tài khoản hoặc mật khẩu không đúng.', false);
+    }
+});
+
+logoutBtn.addEventListener('click', () => {
+    currentLoggedInUser = null;
+    localStorage.removeItem('currentLoggedInForumUser');
+    displayMessage(postMessage, 'Đã đăng xuất.', true);
+    updateForumUI();
+});
+
 submitPostBtn.addEventListener('click', () => {
     const title = postTitleInput.value.trim();
     const content = postContentTextarea.value.trim();
 
-    if (!currentLoggedInUser) {
-        postMessage.textContent = 'Bạn cần đăng nhập để đăng bài.';
-        postMessage.style.color = 'red';
-        return;
-    }
-
     if (!title || !content) {
-        postMessage.textContent = 'Vui lòng nhập đầy đủ tiêu đề và nội dung bài viết.';
-        postMessage.style.color = 'red';
+        displayMessage(postMessage, 'Tiêu đề và nội dung bài viết không được để trống.', false);
         return;
     }
 
     const newPost = {
+        id: Date.now(),
         title: title,
         content: content,
         author: currentLoggedInUser,
-        timestamp: Date.now() // Thời gian hiện tại để sắp xếp và làm ID duy nhất
+        timestamp: Date.now()
     };
 
     forumPosts.push(newPost);
-    saveForumPosts();
-    postMessage.textContent = 'Bài viết của bạn đã được đăng!';
-    postMessage.style.color = 'green';
+    savePosts();
+    displayMessage(postMessage, 'Bài viết của bạn đã được đăng!', true);
     postTitleInput.value = '';
     postContentTextarea.value = '';
-    renderForumPosts(); // Cập nhật lại danh sách bài đăng
+    loadForumPosts();
 });
 
-
-// Hàm thoát HTML để ngăn chặn XSS (Cross-Site Scripting)
-function escapeHTML(str) {
-    var div = document.createElement('div');
-    div.appendChild(document.createTextNode(str));
-    return div.innerHTML;
-}
-
-
-// --- Khởi tạo khi tải trang ---
+// Sự kiện khi tài liệu HTML đã được tải hoàn chỉnh
 document.addEventListener('DOMContentLoaded', () => {
+    loadDarkModeState();
     renderProgrammingLessonsInSidebar();
     showSection(homepageContent); // Mặc định hiển thị trang chủ khi tải trang
-    updateForumUI(); // Cập nhật trạng thái UI diễn đàn ngay khi tải trang
+
+    updateForumUI(); // Cập nhật UI diễn đàn khi tải trang (kiểm tra trạng thái đăng nhập)
 });
