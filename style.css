@@ -204,12 +204,16 @@ body.dark .sidebar-content h3 {
     margin-bottom: 10px;
 }
 
+/* Cập nhật: Điều chỉnh sidebar-item để logo và text nhỏ nằm trên cùng một hàng */
 .sidebar-content .sidebar-item {
-    padding: 12px 15px;
+    display: flex; /* Sử dụng Flexbox để căn chỉnh các phần tử con */
+    align-items: center; /* Căn giữa theo chiều dọc */
+    gap: 8px; /* Khoảng cách giữa logo và alt text */
+    padding: 10px 15px; /* Điều chỉnh padding */
     text-decoration: none;
     font-size: 1.1rem;
     color: #333;
-    display: block;
+    /* Loại bỏ display: block; vì display: flex đã làm điều đó */
     transition: 0.3s;
     border-radius: 5px;
     font-weight: 500;
@@ -228,6 +232,34 @@ body.dark .sidebar-content .sidebar-item:hover {
     background-color: #3b82f6;
     color: white;
 }
+
+/* NEW: Styles for Programming Language Logos in Sidebar */
+.lang-logo {
+    width: 24px; /* Kích thước của logo */
+    height: 24px;
+    object-fit: contain; /* Đảm bảo logo không bị méo */
+    transition: filter 0.3s ease;
+}
+
+body.dark .lang-logo {
+    /* filter: brightness(1.2) contrast(1.1); */ /* Uncomment và điều chỉnh nếu logo quá tối */
+}
+
+.sidebar-content .sidebar-item:hover .lang-logo {
+    /* filter: brightness(1.5); */ /* Uncomment và điều chỉnh hiệu ứng hover cho logo */
+}
+
+/* MỚI: Định dạng cho alt text nhỏ trong sidebar */
+.sidebar-alt-label {
+    font-size: 0.75em; /* Kích thước chữ nhỏ hơn */
+    color: #888; /* Màu xám nhạt để nó không quá nổi bật */
+    margin-left: 5px; /* Khoảng cách với logo */
+    white-space: nowrap; /* Đảm bảo văn bản không bị xuống dòng */
+    overflow: hidden; /* Ẩn nếu quá dài */
+    text-overflow: ellipsis; /* Hiển thị dấu ba chấm nếu bị ẩn */
+}
+/* END NEW: Styles for Programming Language Logos in Sidebar */
+
 
 .menu-category {
     font-weight: bold;
@@ -408,6 +440,24 @@ body.dark .homepage-description-box p[style*="font-weight: bold"] { /* Cho dòng
     display: none !important;
 }
 
+/* MỚI: Định dạng cho tiêu đề bài học lập trình để căn chỉnh logo và văn bản */
+#programmingTitle {
+    display: flex; /* Sử dụng Flexbox để căn chỉnh các phần tử con (logo và text) */
+    align-items: center; /* Căn chỉnh các phần tử con theo chiều dọc (giữa) */
+    gap: 10px; /* Tạo khoảng cách 10px giữa logo và văn bản */
+}
+
+/* MỚI: Định dạng cho logo hiển thị bên cạnh tiêu đề chính */
+.title-logo {
+    width: 30px; /* Đặt chiều rộng của logo là 30px */
+    height: 30px; /* Đặt chiều cao của logo là 30px */
+    object-fit: contain; /* Đảm bảo hình ảnh không bị méo mó khi điều chỉnh kích thước, giữ nguyên tỷ lệ */
+    vertical-align: middle; /* Căn chỉnh hình ảnh theo chiều dọc với văn bản (thường dùng cho inline-block) */
+    /* Bạn có thể thêm border-radius nếu muốn logo bo tròn */
+    /* border-radius: 5px; */
+}
+
+
 /* Titles (for Calculator and Programming sections) */
 .calculator-section h2,
 .programming-section h2,
@@ -467,7 +517,7 @@ body.dark .result {
 
 /* Programming description */
 .programming-desc {
-    white-space: pre-wrap;
+    white-space: pre-wrap; /* Quan trọng để giữ định dạng dòng xuống */
     font-family: 'Consolas', 'Courier New', monospace;
     background: #f9fafb;
     padding: 20px 24px;
