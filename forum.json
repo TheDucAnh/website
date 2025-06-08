@@ -1,0 +1,20 @@
+{
+  "users": [
+    { "username": "admin", "password": "123456" },
+    { "username": "ducanh_abc", "password": "abc123" }
+  ],
+  "posts": [
+    {
+      "author": "admin",
+      "title": "Xin chào!",
+      "content": "Chào mừng bạn đến với diễn đàn lập trình!",
+      "timestamp": "2025-06-08T09:00:00Z"
+    },
+    {
+      "author": "ducanh_abc",
+      "title": "Tôi vừa học xong Python",
+      "content": "Python rất dễ hiểu và thú vị.",
+      "timestamp": "2025-06-08T10:30:00Z"
+    }
+  ]
+}
