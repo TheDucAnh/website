@@ -1,7 +1,8 @@
 {
   "users": [
     { "username": "admin", "password": "123456" },
-    { "username": "ducanh_abc", "password": "abc123" }
+    { "username": "ducanh_abc", "password": "abc123" },
+    { "username": "Ẩn danh", "password": "user123"}
   ],
   "posts": [
     {
