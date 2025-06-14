@@ -1,122 +1,198 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Máy Tính & Lập Trình</title>
-    <link rel="stylesheet" href="style.css" />
-    <link rel="icon" href="https://i.pinimg.com/736x/47/88/45/478845046a758bba8fa863415d30fc80.jpg" type="image/jpeg" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Máy Tính & Lập Trình</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="https://i.pinimg.com/736x/47/88/45/478845046a758bba8fa863415d30fc80.jpg" type="image/jpeg" />
 </head>
 <body>
-    <header>
-        <div class="container">
-            <div class="site-brand" id="siteBrandBtn">
-                <img src="https://i.pinimg.com/736x/47/88/45/478845046a758bba8fa863415d30fc80.jpg" alt="C4C Logo" class="site-logo" />
-                <span class="site-name">Máy Tính & Lập Trình</span>
-            </div>
-            
-            <div class="header-menu-right">
-                <button id="openSidebarBtn" class="btn">Menu</button>
-                <button id="darkModeBtn" class="btn" title="Chuyển sáng/tối">🌙</button>
-            </div>
-        </div>
-    </header>
-
-    <div id="sidebarMenu" class="sidebar-menu">
-        <button id="closeSidebarBtn" class="close-btn">&times;</button> <div class="sidebar-content">
-            <h3>Menu chính</h3>
-            <ul>
-                <li class="menu-category">Máy tính</li>
-                <li><a href="#" class="sidebar-item" data-section="calculatorPrimary">Máy tính Tiểu học</a></li>
-                <li><a href="#" class="sidebar-item" data-section="calculatorSecondary">Máy tính Cấp 2</a></li>
-                <li class="menu-category">Lập trình</li>
-                <li class="menu-category">Cộng đồng</li>
-                <li><a href="#" class="sidebar-item" data-section="forumContent">Diễn Đàn</a></li>
-            </ul>
-        </div>
+  <header>
+    <div class="container">
+      <div class="site-brand" id="siteBrandBtn">
+        <img src="https://i.pinimg.com/736x/47/88/45/478845046a758bba8fa863415d30fc80.jpg" alt="C4C Logo" class="site-logo" />
+        <span class="site-name">Máy Tính & Lập Trình</span>
+      </div>
+      <div class="header-menu-right">
+        <button id="openSidebarBtn" class="btn">Menu</button>
+        <button id="darkModeBtn" class="btn" title="Chuyển sáng/tối">🌙</button>
+      </div>
     </div>
-    <div id="overlay" class="overlay"></div>
+  </header>
 
-    <main>
-        <section id="homepageContent" class="homepage-section">
-            <div class="homepage-content-box">
-                <div class="homepage-description-box" style="margin-top: 0px;"> <h2 class="homepage-title" style="font-size: 1.8rem; margin-bottom: 15px; color: #333;">Về Tác Giả</h2>
-                    <p style="font-weight: bold; color: #1e90ff;">Born 2013 ✨ | Vietnamese 🇻🇳 | Speaks 🇻🇳 | Based in suburban Hanoi 🏠</p>
-                    <p style="margin-top: 10px;">Tôi là ducanh_abc, người tạo ra trang web này. Với niềm đam mê về máy tính và lập trình, tôi hy vọng có thể chia sẻ kiến thức và tạo ra một không gian học hỏi thân thiện cho mọi người.</p>
-                    <p>Nếu bạn có bất kỳ câu hỏi hoặc cần hỗ trợ, đừng ngần ngại liên hệ nhé!</p>
-                </div>
-            </div>
-        </section>
+  <div id="sidebarMenu" class="sidebar-menu">
+    <button id="closeSidebarBtn" class="close-btn">&times;</button>
+    <div class="sidebar-header">Danh mục</div>
+    <ul>
+      <li><a href="#" class="sidebar-item" data-section="homepageContent">Trang Chủ</a></li>
+      <li><a href="#" class="sidebar-item" data-section="calculatorPrimary">Máy Tính Cơ Bản</a></li>
+      <li><a href="#" class="sidebar-item" data-section="calculatorSecondary">Máy Tính Nâng Cao</a></li>
+      <li class="sidebar-category">Lập Trình</li>
+      <li><a href="#" class="sidebar-item" data-section="programmingContent" data-lang="c">Lập trình C</a></li>
+      <li><a href="#" class="sidebar-item" data-section="programmingContent" data-lang="cpp">Lập trình C++</a></li>
+      <li><a href="#" class="sidebar-item" data-section="programmingContent" data-lang="java">Lập trình Java</a></li>
+      <li><a href="#" class="sidebar-item" data-section="programmingContent" data-lang="python">Lập trình Python</a></li>
+      <li><a href="#" class="sidebar-item" data-section="programmingContent" data-lang="html">Lập trình HTML</a></li>
+      <li><a href="#" class="sidebar-item" data-section="programmingContent" data-lang="css">Lập trình CSS</a></li>
+      <li><a href="#" class="sidebar-item" data-section="programmingContent" data-lang="javascript">Lập trình JavaScript</a></li>
+      <li class="sidebar-category">Cộng đồng</li>
+      <li><a href="#" class="sidebar-item" data-section="forumContent">Diễn đàn</a></li>
+    </ul>
+  </div>
 
-        <section id="calculatorPrimary" class="calculator-section hidden">
-            <h2>Máy tính Tiểu học</h2>
-            <input id="expressionPrimary" type="text" placeholder="Nhập biểu thức (ví dụ: 2+3*4)" />
-            <button id="calcBtnPrimary" class="btn calc-btn">Tính</button>
-            <p id="resultPrimary" class="result"></p>
-        </section>
+  <div id="overlay" class="overlay"></div>
 
-        <section id="calculatorSecondary" class="calculator-section hidden">
-            <h2>Máy tính Cấp 2</h2>
-            <input id="expressionSecondary" type="text" placeholder="Hỗ trợ ^, sqrt (ví dụ: sqrt(16)+2^3)" />
-            <button id="calcBtnSecondary" class="btn calc-btn">Tính</button>
-            <p style="font-size: 0.9rem; color: #555; margin-top: 8px;">
-                * Dùng <code>^</code> để tính lũy thừa (mũ), ví dụ: <code>2^3 = 8</code>.<br/>
-                * Dùng <code>sqrt(x)</code> để tính căn bậc hai, ví dụ: <code>sqrt(16) = 4</code>.
-            </p>
-            <p id="resultSecondary" class="result"></p>
-        </section>
+  <main class="container">
+    <section id="homepageContent" class="content-section">
+      <h2>Chào mừng đến với Máy Tính & Lập Trình</h2>
+      <p>
+        Trang web này là nơi bạn có thể khám phá thế giới của máy tính và lập trình.
+        Chúng tôi cung cấp các công cụ hữu ích như máy tính cơ bản, máy tính nâng cao,
+        và các bài học lập trình từ cơ bản đến nâng cao cho nhiều ngôn ngữ phổ biến.
+        Hãy cùng học hỏi, thực hành và chia sẻ kiến thức của bạn với cộng đồng.
+      </p>
+      <div class="homepage-features">
+        <div class="feature-card">
+          <h3>Máy tính</h3>
+          <p>Sử dụng các công cụ tính toán của chúng tôi để hỗ trợ công việc và học tập.</p>
+          <a href="#" class="btn small-btn" onclick="showSection(document.getElementById('calculatorPrimary'))">Khám phá</a>
+        </div>
+        <div class="feature-card">
+          <h3>Lập trình</h3>
+          <p>Bắt đầu hành trình lập trình của bạn với các bài học chi tiết và ví dụ thực tế.</p>
+          <a href="#" class="btn small-btn" onclick="showSection(document.getElementById('programmingContent'))">Học ngay</a>
+        </div>
+        <div class="feature-card">
+          <h3>Diễn đàn</h3>
+          <p>Tham gia cộng đồng, đặt câu hỏi, chia sẻ kiến thức và thảo luận.</p>
+          <a href="#" class="btn small-btn" onclick="showSection(document.getElementById('forumContent'))">Vào diễn đàn</a>
+        </div>
+      </div>
+    </section>
 
-        <section id="programmingContent" class="programming-section hidden">
-            <h2 id="programmingTitle">Bài học lập trình</h2>
-            <pre id="programmingDescription" class="programming-desc"></pre>
-        </section>
+    <section id="calculatorPrimary" class="content-section hidden">
+      <h2>Máy Tính Cơ Bản</h2>
+      <div class="calculator">
+        <input type="text" class="calculator-display" id="displayPrimary" disabled />
+        <div class="calculator-keys">
+          <button class="key-operator" data-action="add">+</button>
+          <button class="key-operator" data-action="subtract">-</button>
+          <button class="key-operator" data-action="multiply">×</button>
+          <button class="key-operator" data-action="divide">÷</button>
+          <button>7</button>
+          <button>8</button>
+          <button>9</button>
+          <button>4</button>
+          <button>5</button>
+          <button>6</button>
+          <button>1</button>
+          <button>2</button>
+          <button>3</button>
+          <button>0</button>
+          <button class="key-decimal">.</button>
+          <button class="key-clear" data-action="clear">AC</button>
+          <button class="key-equal" data-action="calculate">=</button>
+        </div>
+      </div>
+    </section>
 
-        <section id="forumContent" class="forum-section hidden">
-            <h2>Diễn Đàn</h2>
-            <div id="authContainer" class="auth-container">
-                <div id="loginForm">
-                    <h3>Đăng nhập</h3>
-                    <input type="text" id="loginUsername" placeholder="Tên tài khoản" required />
-                    <input type="password" id="loginPassword" placeholder="Mật khẩu" required />
-                    <button id="loginBtn" class="btn">Đăng nhập</button>
-                    <p>Chưa có tài khoản? <a href="#" id="showRegisterForm">Đăng ký ngay</a></p>
-                    <p id="loginMessage" class="auth-message"></p>
-                </div>
-                <div id="registerForm" class="hidden">
-                    <h3>Đăng ký</h3>
-                    <input type="text" id="registerUsername" placeholder="Tên tài khoản mới" required />
-                    <input type="password" id="registerPassword" placeholder="Mật khẩu mới" required />
-                    <button id="registerBtn" class="btn">Đăng ký</button>
-                    <p>Đã có tài khoản? <a href="#" id="showLoginForm">Đăng nhập</a></p>
-                    <p id="registerMessage" class="auth-message"></p>
-                </div>
-            </div>
+    <section id="calculatorSecondary" class="content-section hidden">
+      <h2>Máy Tính Nâng Cao</h2>
+      <div class="calculator">
+        <input type="text" class="calculator-display" id="displaySecondary" disabled />
+        <div class="calculator-keys">
+          <button class="key-operator" data-action="sin">sin</button>
+          <button class="key-operator" data-action="cos">cos</button>
+          <button class="key-operator" data-action="tan">tan</button>
+          <button class="key-operator" data-action="sqrt">√</button>
+          <button class="key-operator" data-action="power">xⁿ</button>
+          <button class="key-operator" data-action="log">log</button>
+          <button class="key-operator" data-action="pi">π</button>
+          <button class="key-operator" data-action="e">e</button>
+          <button class="key-operator" data-action="parenthesis-open">(</button>
+          <button class="key-operator" data-action="parenthesis-close">)</button>
+          <button class="key-operator" data-action="add">+</button>
+          <button class="key-operator" data-action="subtract">-</button>
+          <button class="key-operator" data-action="multiply">×</button>
+          <button class="key-operator" data-action="divide">÷</button>
+          <button>7</button>
+          <button>8</button>
+          <button>9</button>
+          <button>4</button>
+          <button>5</button>
+          <button>6</button>
+          <button>1</button>
+          <button>2</button>
+          <button>3</button>
+          <button>0</button>
+          <button class="key-decimal">.</button>
+          <button class="key-clear" data-action="clear">AC</button>
+          <button class="key-equal" data-action="calculate">=</button>
+        </div>
+      </div>
+    </section>
 
-            <div id="postContainer" class="post-container hidden">
-                <div class="user-info">
-                    Chào mừng, <span id="loggedInUsername"></span>! 
-                    <button id="logoutBtn" class="btn small-btn">Đăng xuất</button>
-                </div>
-                <h3>Đăng bài mới</h3>
-                <input type="text" id="postTitle" placeholder="Tiêu đề bài viết" required />
-                <textarea id="postContent" placeholder="Nội dung bài viết" rows="6" required></textarea>
-                <button id="submitPostBtn" class="btn">Đăng bài</button>
-                <p id="postMessage" class="auth-message"></p>
+    <section id="programmingContent" class="content-section hidden">
+      <h2 id="programmingTitle"></h2>
+      <p id="programmingDescription"></p>
+      <div id="lessonContent">
+        <p class="no-lesson-selected">Vui lòng chọn một ngôn ngữ lập trình từ menu bên cạnh để xem các bài học.</p>
+      </div>
+    </section>
 
-                <hr style="margin: 25px 0; border-color: #eee;">
+    <section id="forumContent" class="content-section hidden">
+      <h2>Diễn đàn Cộng đồng</h2>
 
-                <h3>Các bài viết</h3>
-                <div id="forumPosts">
-                    <p class="no-posts">Chưa có bài viết nào. Hãy là người đầu tiên đăng bài!</p>
-                </div>
-            </div>
-        </section>
-    </main>
+      <div id="authContainer" class="auth-container">
+        <div id="loginForm" class="auth-form">
+          <h3>Đăng nhập</h3>
+          <input type="text" id="loginUsername" placeholder="Tên đăng nhập" required />
+          <input type="password" id="loginPassword" placeholder="Mật khẩu" required />
+          <button id="loginBtn" class="btn">Đăng nhập</button>
+          <p>Chưa có tài khoản? <a href="#" id="showRegisterForm">Đăng ký</a></p>
+          <p id="loginMessage" class="auth-message"></p>
+        </div>
 
-    <footer class="site-footer">
-        Được phát triển bởi: ducanh_abc - Sinh năm 2013, thuộc thế hệ Alpha. Nếu bạn cần thêm thông tin, đừng ngần ngại hỏi!
-    </footer>
+        <div id="registerForm" class="auth-form hidden">
+          <h3>Đăng ký</h3>
+          <input type="text" id="registerUsername" placeholder="Tên đăng nhập" required />
+          <input type="password" id="registerPassword" placeholder="Mật khẩu mới" required />
+          <input type="password" id="registerConfirmPassword" placeholder="Xác nhận mật khẩu" required />
+          <button id="registerBtn" class="btn">Đăng ký</button>
+          <p>Đã có tài khoản? <a href="#" id="showLoginForm">Đăng nhập</a></p>
+          <p id="registerMessage" class="auth-message"></p>
+        </div>
+      </div>
 
-    <script src="script.js"></script>
+      <div id="postContainer" class="post-container hidden">
+        <div class="user-info">
+          Chào mừng, <span id="loggedInUsername"></span>!
+          <button id="logoutBtn" class="btn small-btn">Đăng xuất</button>
+        </div>
+        <h3>Đăng bài mới</h3>
+        <input type="text" id="postTitle" placeholder="Tiêu đề bài viết" required />
+        <textarea id="postContent" placeholder="Nội dung bài viết" rows="6" required></textarea>
+        <button id="submitPostBtn" class="btn">Đăng bài</button>
+        <p id="postMessage" class="auth-message"></p>
+
+        <hr style="margin: 25px 0; border-color: #eee;" />
+
+        <h3>Các bài viết</h3>
+        <div id="forumPosts">
+          <p class="no-posts">Chưa có bài viết nào. Hãy là người đầu tiên đăng bài!</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2024 Máy Tính & Lập Trình. All rights reserved.</p>
+      <div class="developer-info">Được phát triển bởi Ducanh_abc</div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>

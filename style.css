@@ -21,6 +21,160 @@ body.dark {
     color: #ddd;
 }
 
+/* Header (giữ nguyên màu xanh dương) */
+body.dark header {
+    /* background-color: #333;  Đã loại bỏ trước đó */
+}
+
+/* Các phần tử khác trong Dark Mode */
+body.dark .sidebar-menu ul li a {
+    color: #ddd;
+}
+
+body.dark .sidebar-menu ul li a:hover {
+    background-color: #444;
+}
+
+body.dark .sidebar-category {
+    color: #bbb;
+}
+
+body.dark main .content-section {
+    background-color: #1e1e1e;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+}
+
+body.dark .calculator,
+body.dark .auth-form,
+body.dark .post-container {
+    background-color: #2b2b2b;
+    border: 1px solid #444;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+body.dark .calculator-display {
+    background-color: #444;
+    color: #eee;
+}
+
+body.dark .calculator-keys button {
+    background-color: #3a3a3a;
+    color: #eee;
+    border: 1px solid #555;
+}
+
+body.dark .calculator-keys button.key-operator {
+    background-color: #0056b3;
+}
+
+body.dark .calculator-keys button.key-operator:hover {
+    background-color: #004085;
+}
+
+body.dark .calculator-keys button.key-equal {
+    background-color: #28a745;
+}
+
+body.dark .calculator-keys button.key-equal:hover {
+    background-color: #218838;
+}
+
+body.dark .calculator-keys button.key-clear {
+    background-color: #dc3545;
+}
+
+body.dark .calculator-keys button.key-clear:hover {
+    background-color: #c82333;
+}
+
+body.dark input[type="text"],
+body.dark input[type="password"],
+body.dark textarea {
+    background-color: #3a3a3a;
+    color: #eee;
+    border: 1px solid #555;
+}
+
+body.dark input[type="text"]::placeholder,
+body.dark input[type="password"]::placeholder,
+body.dark textarea::placeholder {
+    color: #bbb;
+}
+
+body.dark .btn {
+    background-color: #007bff;
+    color: #fff;
+}
+
+body.dark .btn:hover {
+    background-color: #0056b3;
+}
+
+body.dark .btn.small-btn {
+    background-color: #6c757d;
+}
+
+body.dark .btn.small-btn:hover {
+    background-color: #5a6268;
+}
+
+/* Footer - Đã chỉnh sửa để trong suốt */
+footer {
+    background-color: transparent; /* Đã thay đổi: làm nền trong suốt */
+    color: #555; /* Đã thay đổi: màu chữ cho nền sáng */
+    padding: 15px 0;
+    text-align: center;
+    font-size: 0.9rem;
+    position: relative;
+    margin-top: auto; /* Pushes footer to the bottom */
+}
+
+body.dark footer {
+    background-color: transparent; /* Đã thay đổi: làm nền trong suốt trong dark mode */
+    color: #aaa; /* Giữ nguyên màu chữ cho nền tối */
+}
+
+body.dark hr {
+    border-color: #555 !important;
+}
+
+body.dark .feature-card {
+    background-color: #2b2b2b;
+    border: 1px solid #444;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+body.dark .feature-card h3 {
+    color: #eee;
+}
+
+body.dark .post {
+    background-color: #2b2b2b;
+    border: 1px solid #444;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+body.dark .post h4 {
+    color: #e0e0e0;
+}
+
+body.dark .post p {
+    color: #ccc;
+}
+
+body.dark .post-meta {
+    color: #999;
+}
+
+body.dark .no-posts {
+    color: #aaa;
+}
+
+/* Updated developer-info color for dark mode */
+body.dark .developer-info {
+    color: rgba(255, 255, 255, 0.2); /* Màu trắng mờ hơn cho nền tối */
+}
+
 /* Header */
 header {
     background-color: #1e90ff; /* Màu xanh dương cho header */
@@ -45,234 +199,153 @@ header .container {
 .site-brand {
     display: flex;
     align-items: center;
-    gap: 10px;
-    margin-right: auto; /* Đẩy các nút sang phải */
-    cursor: pointer; /* Biến thành nút click được */
-    padding: 8px 12px; /* Thêm padding để dễ click */
-    border-radius: 8px; /* Bo góc */
-    transition: background-color 0.3s ease;
+    cursor: pointer;
+    margin-right: auto; /* Đẩy các phần tử khác sang phải */
+    transition: opacity 0.2s ease;
 }
 
 .site-brand:hover {
-    background-color: rgba(255, 255, 255, 0.15); /* Màu nền nhẹ khi hover */
+    opacity: 0.8;
 }
 
 .site-logo {
-    width: 36px;
-    height: 36px;
+    height: 40px;
+    width: 40px;
     border-radius: 50%;
+    margin-right: 10px;
     object-fit: cover;
+    border: 2px solid rgba(255, 255, 255, 0.8);
 }
 
 .site-name {
-    font-size: 1.5rem; /* Tăng kích thước font cho C4C */
-    font-weight: 700;
-    color: white;
+    color: #fff;
+    font-size: 1.5rem;
+    font-weight: bold;
+    white-space: nowrap; /* Ngăn không cho chữ xuống dòng */
 }
 
-/* Menu bên phải header */
 .header-menu-right {
     display: flex;
-    gap: 12px;
-    align-items: center;
+    gap: 10px;
 }
 
-/* Nút chung */
-.btn {
-    background-color: #fff;
-    border: none;
-    border-radius: 8px;
-    padding: 10px 20px;
-    font-size: 1rem;
-    font-weight: 600;
-    cursor: pointer;
-    box-shadow: 0 2px 6px rgb(0 0 0 / 0.1);
-    user-select: none;
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-}
-
-.btn:hover {
-    background-color: #e0e7ff;
-    box-shadow: 0 4px 12px rgb(30 144 255 / 0.3);
-}
-
-/* Khi body là dark thì nút sáng tối có màu đặc biệt */
-body.dark .btn {
-    background-color: #333;
-    color: #eee;
-}
-
-body.dark .btn:hover {
-    background-color: #555;
-}
-
-/* Nút nhỏ hơn (cho Logout) */
-.btn.small-btn {
-    padding: 6px 12px;
-    font-size: 0.85rem;
-    box-shadow: none;
-    background-color: #dc3545; /* Màu đỏ cho logout */
-    color: white;
-}
-
-body.dark .btn.small-btn {
-    background-color: #a73c45;
-}
-
-.btn.small-btn:hover {
-    background-color: #c82333;
-    box-shadow: none;
-}
-
-body.dark .btn.small-btn:hover {
-    background-color: #8d2e37;
-}
-
-/* Sidebar Menu */
+/* Sidebar Menu - Giữ nguyên không trong suốt */
 .sidebar-menu {
-    height: 100%; /* Chiều cao đầy đủ */
-    width: 0; /* Ban đầu ẩn */
-    position: fixed; /* Luôn cố định trên màn hình */
-    z-index: 2000; /* Cao hơn các phần tử khác */
+    position: fixed;
     top: 0;
-    left: 0; /* Kéo từ bên trái */
-    background-color: #fff;
-    overflow-x: hidden; /* Ẩn nội dung bị tràn */
-    transition: 0.5s; /* Hiệu ứng chuyển động */
-    padding-top: 60px; /* Khoảng cách từ trên xuống */
-    box-shadow: 4px 0 15px rgba(0,0,0,0.2); /* Đổi hướng bóng */
-    display: flex;
-    flex-direction: column;
-}
-
-body.dark .sidebar-menu {
-    background-color: #222;
+    left: -280px; /* Ẩn ban đầu */
+    width: 250px;
+    height: 100%;
+    background-color: #fff; /* Giữ nguyên màu trắng */
+    box-shadow: 2px 0 8px rgba(0, 0, 0, 0.2); /* Giữ nguyên bóng */
+    padding-top: 60px; /* Khoảng trống cho header */
+    transition: left 0.3s ease;
+    z-index: 1100;
+    overflow-y: auto; /* Cho phép cuộn nếu nội dung dài */
+    border-right: 1px solid #ddd; /* Giữ nguyên viền phải */
 }
 
 .sidebar-menu.open {
-    width: 250px; /* Chiều rộng khi mở */
+    left: 0; /* Hiện ra */
 }
 
-/* Nút đóng sidebar */
-.sidebar-menu .close-btn {
+.sidebar-header {
+    padding: 15px 20px 10px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #333;
+    border-bottom: 1px solid #eee; /* Giữ nguyên viền dưới */
+}
+
+body.dark .sidebar-header {
+    color: #ddd; /* Đảm bảo màu chữ header sidebar vẫn nhìn thấy trong dark mode */
+    border-bottom: 1px solid #444; /* Giữ nguyên viền dưới trong dark mode */
+}
+
+body.dark .sidebar-menu {
+    background-color: #222; /* Giữ nguyên màu xám đậm cho dark mode */
+    border-right: 1px solid #444; /* Giữ nguyên viền phải trong dark mode */
+}
+
+.sidebar-menu ul {
+    list-style: none;
+    padding: 10px 0;
+}
+
+.sidebar-menu ul li a {
+    display: block;
+    padding: 12px 20px;
+    color: #555;
+    text-decoration: none;
+    transition: background-color 0.2s ease, color 0.2s ease;
+    border-left: 3px solid transparent;
+}
+
+body.dark .sidebar-menu ul li a {
+    color: #ddd; /* Đảm bảo màu chữ item sidebar vẫn nhìn thấy trong dark mode */
+}
+
+body.dark .sidebar-menu ul li a:hover {
+    background-color: #444; /* Giữ nguyên màu hover trong dark mode */
+    border-left-color: #007bff; /* Giữ border trái khi hover */
+}
+
+.sidebar-menu ul li a:hover {
+    background-color: #e9ecef; /* Giữ nguyên màu hover trong light mode */
+    color: #1e90ff;
+    border-left-color: #1e90ff;
+}
+
+.sidebar-menu ul li a.active {
+    background-color: #e0f2ff; /* Giữ nguyên màu active trong light mode */
+    color: #1e90ff;
+    font-weight: bold;
+    border-left-color: #1e90ff;
+}
+
+body.dark .sidebar-menu ul li a.active {
+    background-color: #0056b3; /* Giữ nguyên màu active trong dark mode */
+    color: #fff;
+    border-left-color: #007bff;
+}
+
+.sidebar-category {
+    padding: 15px 20px 5px;
+    font-weight: bold;
+    color: #777;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-top: 10px;
+}
+
+body.dark .sidebar-category {
+    color: #bbb; /* Đảm bảo màu chữ category vẫn nhìn thấy trong dark mode */
+}
+
+.close-btn {
     position: absolute;
-    top: 0;
-    left: 25px; /* Đổi vị trí nút đóng sang trái */
-    font-size: 36px;
-    margin-right: 50px; /* Đổi margin */
+    top: 10px;
+    right: 15px;
     background: none;
     border: none;
-    color: #888;
+    font-size: 2rem;
     cursor: pointer;
-    padding: 10px;
-    transition: 0.3s;
-}
-
-body.dark .sidebar-menu .close-btn {
-    color: #ccc;
-}
-
-.sidebar-menu .close-btn:hover {
-    color: #f44336;
-}
-
-/* Nội dung sidebar */
-.sidebar-content {
-    padding: 0 25px;
-    flex-grow: 1; /* Cho phép nội dung lấp đầy */
-}
-
-.sidebar-content h3 {
-    color: #1e90ff;
-    margin-bottom: 20px;
-    font-size: 1.4rem;
-}
-
-body.dark .sidebar-content h3 {
-    color: #63b3ed;
-}
-
-.sidebar-content ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-.sidebar-content li {
-    margin-bottom: 10px;
-}
-
-/* Cập nhật: Điều chỉnh sidebar-item để logo và text nhỏ nằm trên cùng một hàng */
-.sidebar-content .sidebar-item {
-    display: flex; /* Sử dụng Flexbox để căn chỉnh các phần tử con */
-    align-items: center; /* Căn giữa theo chiều dọc */
-    gap: 8px; /* Khoảng cách giữa logo và alt text */
-    padding: 10px 15px; /* Điều chỉnh padding */
-    text-decoration: none;
-    font-size: 1.1rem;
-    color: #333;
-    /* Loại bỏ display: block; vì display: flex đã làm điều đó */
-    transition: 0.3s;
-    border-radius: 5px;
-    font-weight: 500;
-}
-
-body.dark .sidebar-content .sidebar-item {
-    color: #ddd;
-}
-
-.sidebar-content .sidebar-item:hover {
-    background-color: #e0e7ff;
-    color: #1e90ff;
-}
-
-body.dark .sidebar-content .sidebar-item:hover {
-    background-color: #3b82f6;
-    color: white;
-}
-
-/* NEW: Styles for Programming Language Logos in Sidebar */
-.lang-logo {
-    width: 24px; /* Kích thước của logo */
-    height: 24px;
-    object-fit: contain; /* Đảm bảo logo không bị méo */
-    transition: filter 0.3s ease;
-}
-
-body.dark .lang-logo {
-    /* filter: brightness(1.2) contrast(1.1); */ /* Uncomment và điều chỉnh nếu logo quá tối */
-}
-
-.sidebar-content .sidebar-item:hover .lang-logo {
-    /* filter: brightness(1.5); */ /* Uncomment và điều chỉnh hiệu ứng hover cho logo */
-}
-
-/* MỚI: Định dạng cho alt text nhỏ trong sidebar */
-.sidebar-alt-label {
-    font-size: 0.75em; /* Kích thước chữ nhỏ hơn */
-    color: #888; /* Màu xám nhạt để nó không quá nổi bật */
-    margin-left: 5px; /* Khoảng cách với logo */
-    white-space: nowrap; /* Đảm bảo văn bản không bị xuống dòng */
-    overflow: hidden; /* Ẩn nếu quá dài */
-    text-overflow: ellipsis; /* Hiển thị dấu ba chấm nếu bị ẩn */
-}
-/* END NEW: Styles for Programming Language Logos in Sidebar */
-
-
-.menu-category {
-    font-weight: bold;
     color: #555;
-    margin-top: 15px;
-    margin-bottom: 8px;
-    padding-left: 5px;
-    font-size: 1rem;
-    text-transform: uppercase;
+    transition: color 0.2s ease;
+    padding: 5px;
 }
 
-body.dark .menu-category {
-    color: #aaa;
+body.dark .close-btn {
+    color: #bbb; /* Màu cho nút đóng trong dark mode */
+}
+
+.close-btn:hover {
+    color: #000;
+}
+
+body.dark .close-btn:hover {
+    color: #eee; /* Hover màu cho nút đóng trong dark mode */
 }
 
 /* Overlay */
@@ -282,470 +355,399 @@ body.dark .menu-category {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0,0,0,0.5);
-    z-index: 1500; /* Nằm giữa sidebar và các nội dung khác */
-    opacity: 0;
-    transition: opacity 0.5s;
-    pointer-events: none; /* Không chặn click khi ẩn */
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1050;
+    display: none; /* Ẩn ban đầu */
 }
 
-.overlay.open {
-    opacity: 1;
-    pointer-events: auto; /* Chặn click khi hiển thị */
+.overlay.visible {
+    display: block; /* Hiện khi menu mở */
 }
 
-/* Container chính */
+/* Main Content */
 main {
-    flex: 1;
-    max-width: 900px; /* Giữ max-width để nội dung không quá rộng */
-    margin: 24px auto;
-    padding: 0 16px;
-    width: 100%;
-}
-
-/* Sections (chung cho Calculator và Programming) */
-.calculator-section,
-.programming-section,
-.forum-section { /* Thêm forum-section vào đây */
-    background: white;
-    padding: 24px 28px;
-    border-radius: 12px;
-    box-shadow: 0 8px 24px rgb(0 0 0 / 0.05);
-    margin-bottom: 24px;
-    min-height: 320px;
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-body.dark .calculator-section,
-body.dark .programming-section,
-body.dark .forum-section { /* Thêm forum-section vào đây */
-    background: #222;
-    color: #ddd;
-}
-
-/* Homepage Section */
-.homepage-section {
-    display: flex;
-    justify-content: center;
+    flex-grow: 1; /* Đảm bảo main chiếm hết không gian còn lại */
     padding: 20px 0;
-}
-
-body.dark .homepage-section {
-    background: transparent;
-}
-
-/* Homepage content box */
-.homepage-content-box {
-    max-width: 960px;
     width: 100%;
-    padding: 30px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.content-section {
     background-color: #fff;
+    padding: 25px;
     border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.3s ease, color 0.3s ease;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px; /* Khoảng cách giữa các section nếu hiển thị nhiều */
 }
 
-body.dark .homepage-content-box {
-    background-color: #222;
-    color: #ddd;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
-}
-
-/* Homepage title (Chung cho các tiêu đề trong homepage-content-box, ví dụ "Về Tác Giả") */
-.homepage-title {
+.content-section h2 {
     color: #1e90ff;
-    font-size: 2.5rem;
     margin-bottom: 20px;
-    text-align: left;
+    font-size: 1.8rem;
+    border-bottom: 2px solid #eee;
     padding-bottom: 10px;
 }
 
-body.dark .homepage-title {
-    color: #63b3ed;
-}
-
-/* Homepage description box */
-.homepage-description-box {
-    margin-bottom: 30px;
-    padding: 20px;
-    background-color: #e9ecef;
-    border-radius: 6px;
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-body.dark .homepage-description-box {
-    background-color: #333;
-    color: #ddd;
-}
-
-.homepage-welcome { /* Có thể không còn dùng nhưng vẫn giữ quy tắc để tránh lỗi */
-    font-size: 1.6rem;
-    font-weight: bold;
+.content-section p {
+    line-height: 1.6;
     margin-bottom: 15px;
-    color: #28a745;
-    text-align: center;
 }
 
-body.dark .homepage-welcome {
-    color: #82e0aa;
+.content-section p:last-child {
+    margin-bottom: 0;
 }
 
-.homepage-description-box p {
-    line-height: 1.8;
-    color: #343a40; /* Màu mặc định cho văn bản */
-    margin-bottom: 10px;
-}
-
-body.dark .homepage-description-box p {
-    color: #ccc; /* Màu cho văn bản trong dark mode */
-}
-
-.homepage-description-box a {
-    color: #1e90ff;
-    text-decoration: underline;
-    font-weight: bold;
-    transition: color 0.3s ease;
-}
-
-.homepage-description-box a:hover {
-    text-decoration: none;
-    color: #005fcc;
-}
-
-body.dark .homepage-description-box a {
-    color: #63b3ed;
-}
-
-body.dark .homepage-description-box a:hover {
-    color: #3b82f6;
-}
-
-/* >>> BẮT ĐẦU CÁC CHỈNH SỬA MỚI CHO CHẾ ĐỘ TỐI CỦA PHẦN "VỀ TÁC GIẢ" <<< */
-body.dark .homepage-content-box h2.homepage-title { /* Cho tiêu đề "Về Tác Giả" (dòng này cũng là .homepage-title) */
-    color: #a7d9ff !important; /* Một màu xanh nhạt hơn, dễ nhìn hơn trên nền tối */
-}
-
-body.dark .homepage-description-box p { /* Cho các đoạn văn bản trong homepage-description-box */
-    color: #d1d1d1; /* Màu xám nhạt hơn cho văn bản chính */
-}
-
-body.dark .homepage-description-box p[style*="font-weight: bold"] { /* Cho dòng chữ Born 2013... */
-    color: #8be0ff !important; /* Một màu xanh sáng hơn cho dòng nổi bật */
-}
-/* >>> KẾT THÚC CÁC CHỈNH SỬA MỚI CHO CHẾ ĐỘ TỐI CỦA PHẦN "VỀ TÁC GIẢ" <<< */
-
-
-/* Hidden class */
 .hidden {
     display: none !important;
 }
 
-/* MỚI: Định dạng cho tiêu đề bài học lập trình để căn chỉnh logo và văn bản */
-#programmingTitle {
-    display: flex; /* Sử dụng Flexbox để căn chỉnh các phần tử con (logo và text) */
-    align-items: center; /* Căn chỉnh các phần tử con theo chiều dọc (giữa) */
-    gap: 10px; /* Tạo khoảng cách 10px giữa logo và văn bản */
-}
-
-/* MỚI: Định dạng cho logo hiển thị bên cạnh tiêu đề chính */
-.title-logo {
-    width: 30px; /* Đặt chiều rộng của logo là 30px */
-    height: 30px; /* Đặt chiều cao của logo là 30px */
-    object-fit: contain; /* Đảm bảo hình ảnh không bị méo mó khi điều chỉnh kích thước, giữ nguyên tỷ lệ */
-    vertical-align: middle; /* Căn chỉnh hình ảnh theo chiều dọc với văn bản (thường dùng cho inline-block) */
-    /* Bạn có thể thêm border-radius nếu muốn logo bo tròn */
-    /* border-radius: 5px; */
-}
-
-
-/* Titles (for Calculator and Programming sections) */
-.calculator-section h2,
-.programming-section h2,
-.forum-section h2 { /* Thêm forum-section vào đây */
-    margin-bottom: 18px;
-    color: #1e90ff;
-    font-weight: 700;
-}
-
-body.dark .calculator-section h2,
-body.dark .programming-section h2,
-body.dark .forum-section h2 { /* Thêm forum-section vào đây */
-    color: #63b3ed;
-}
-
-/* Input (chung cho calculator, programming, và forum) */
-input[type="text"],
-input[type="password"],
-textarea { /* Thêm input password và textarea */
-    width: 100%;
-    padding: 12px 16px;
-    font-size: 1rem;
-    border-radius: 8px;
-    border: 1.8px solid #d1d5db;
-    outline-offset: 3px;
-    margin-bottom: 10px; /* Thêm margin dưới cho các input */
-    transition: border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, color 0.3s ease;
-}
-
-input[type="text"]:focus,
-input[type="password"]:focus,
-textarea:focus {
-    border-color: #1e90ff;
-    box-shadow: 0 0 10px rgb(30 144 255 / 0.35);
-}
-
-body.dark input[type="text"],
-body.dark input[type="password"],
-body.dark textarea {
-    background-color: #333;
-    color: #ddd;
-    border-color: #555;
-}
-
-/* Result text */
-.result {
-    margin-top: 16px;
-    font-weight: 700;
-    font-size: 1.2rem;
-    color: #222;
-    min-height: 30px;
-}
-
-body.dark .result {
-    color: #eee;
-}
-
-/* Programming description */
-.programming-desc {
-    white-space: pre-wrap; /* Quan trọng để giữ định dạng dòng xuống */
-    font-family: 'Consolas', 'Courier New', monospace;
-    background: #f9fafb;
-    padding: 20px 24px;
-    border-radius: 10px;
-    border: 1.5px solid #cbd5e1;
-    max-height: 500px;
-    overflow-y: auto;
-    line-height: 1.5;
-    color: #2d3748;
-    user-select: text;
-    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
-}
-
-body.dark .programming-desc {
-    background: #333;
-    color: #ccc;
-    border-color: #555;
-}
-
-/* Calculate button */
-.calc-btn {
-    margin-top: 14px;
-    width: 100%;
-    max-width: 140px;
+/* Buttons */
+.btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
     background-color: #1e90ff;
-    color: white;
-    font-weight: 700;
-    font-size: 1rem;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgb(30 144 255 / 0.6);
+    color: #fff;
     cursor: pointer;
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    font-size: 1rem;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    white-space: nowrap; /* Đảm bảo nút không bị xuống dòng */
 }
 
-.calc-btn:hover {
-    background-color: #005fcc;
-    box-shadow: 0 6px 16px rgb(0 95 204 / 0.8);
+.btn:hover {
+    background-color: #147ad6;
+    transform: translateY(-1px);
 }
 
-body.dark .calc-btn {
-    background-color: #3b82f6;
-    box-shadow: 0 4px 10px rgba(59, 130, 246, 0.8);
+.btn:active {
+    transform: translateY(0);
 }
 
-body.dark .calc-btn:hover {
-    background-color: #2563eb;
-    box-shadow: 0 6px 16px rgba(37, 99, 235, 0.8);
+.btn.small-btn {
+    padding: 8px 15px;
+    font-size: 0.9rem;
+    background-color: #6c757d;
 }
 
-/* Footer */
-.site-footer {
-    position: sticky; /* Sticky footer */
-    bottom: 0;
-    width: 100%;
-    padding: 10px 16px;
-    font-size: 0.85rem;
-    color: rgba(0, 0, 0, 0.4);
-    font-style: italic;
-    text-align: right;
-    background-color: #f0f2f5; /* Same as body background */
-    z-index: 900; /* Below header dropdowns */
+.btn.small-btn:hover {
+    background-color: #5a6268;
 }
 
-body.dark .site-footer {
-    color: rgba(255, 255, 255, 0.4);
-    background-color: #121212;
+/* Homepage Features */
+.homepage-features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    margin-top: 30px;
 }
 
-/* Forum Specific Styles */
-.auth-container {
-    background: #f8f9fa;
-    padding: 25px;
+.feature-card {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    text-align: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.feature-card h3 {
+    color: #1e90ff;
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+}
+
+.feature-card p {
+    color: #555;
+    margin-bottom: 20px;
+}
+
+/* Calculator Styles */
+.calculator {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
     border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-    margin-bottom: 25px;
+    padding: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    max-width: 350px; /* Giới hạn chiều rộng máy tính */
+    margin: 20px auto; /* Căn giữa */
+}
+
+.calculator-display {
+    width: 100%;
+    padding: 15px;
+    font-size: 2.5rem;
+    text-align: right;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    background-color: #eee;
+    color: #333;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.calculator-keys {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+.calculator-keys button {
+    padding: 15px;
+    font-size: 1.5rem;
+    border: 1px solid #bbb;
+    border-radius: 5px;
+    background-color: #e0e0e0;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.calculator-keys button:hover {
+    background-color: #d0d0d0;
+}
+
+.calculator-keys button:active {
+    transform: translateY(1px);
+}
+
+.calculator-keys .key-operator {
+    background-color: #1e90ff;
+    color: #fff;
+}
+
+.calculator-keys .key-operator:hover {
+    background-color: #147ad6;
+}
+
+.calculator-keys .key-equal {
+    background-color: #28a745;
+    color: #fff;
+    grid-column: span 2; /* Chiếm 2 cột */
+}
+
+.calculator-keys .key-equal:hover {
+    background-color: #218838;
+}
+
+.calculator-keys .key-clear {
+    background-color: #dc3545;
+    color: #fff;
+}
+
+.calculator-keys .key-clear:hover {
+    background-color: #c82333;
+}
+
+/* Programming Content */
+#programmingContent #lessonContent {
+    background-color: #f8f8f8;
+    border: 1px solid #eee;
+    border-radius: 5px;
+    padding: 20px;
+    margin-top: 20px;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+body.dark #programmingContent #lessonContent {
+    background-color: #222;
+    border-color: #444;
+}
+
+#programmingContent h3 {
+    color: #1e90ff;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-size: 1.4rem;
+}
+
+body.dark #programmingContent h3 {
+    color: #6daffc;
+}
+
+#programmingContent pre {
+    background-color: #eef;
+    padding: 15px;
+    border-radius: 5px;
+    overflow-x: auto;
+    font-family: 'Consolas', 'Monaco', monospace;
+    font-size: 0.95rem;
+    line-height: 1.4;
+    border: 1px solid #e0e0e0;
+    margin-bottom: 15px;
+}
+
+body.dark #programmingContent pre {
+    background-color: #333;
+    border-color: #555;
+    color: #e0e0e0;
+}
+
+#programmingContent code {
+    color: #c7254e; /* Default inline code color */
+}
+
+body.dark #programmingContent code {
+    color: #f7b2b2;
+}
+
+.no-lesson-selected {
+    text-align: center;
+    font-style: italic;
+    color: #777;
+    padding: 20px;
+}
+
+body.dark .no-lesson-selected {
+    color: #aaa;
+}
+
+/* Forum - Auth & Posts */
+.auth-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.auth-form {
+    background-color: #f9f9f9;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    padding: 30px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
     text-align: center;
 }
 
-body.dark .auth-container {
-    background: #2b2b2b;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-}
-
-.auth-container h3 {
+.auth-form h3 {
     color: #1e90ff;
     margin-bottom: 20px;
     font-size: 1.6rem;
 }
 
-body.dark .auth-container h3 {
-    color: #63b3ed;
-}
-
-.auth-container input {
+.auth-form input[type="text"],
+.auth-form input[type="password"] {
+    width: calc(100% - 20px);
+    padding: 12px 10px;
     margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
 }
 
-.auth-container button {
-    width: auto;
-    padding: 10px 25px;
+.auth-form button.btn {
+    width: 100%;
+    padding: 12px;
     margin-top: 10px;
 }
 
-.auth-container p {
+.auth-form p {
     margin-top: 15px;
     font-size: 0.95rem;
+    color: #666;
 }
 
-.auth-container a {
+.auth-form p a {
     color: #1e90ff;
     text-decoration: none;
-    font-weight: 600;
 }
 
-.auth-container a:hover {
+.auth-form p a:hover {
     text-decoration: underline;
 }
 
-body.dark .auth-container a {
-    color: #63b3ed;
-}
-
 .auth-message {
-    margin-top: 15px;
+    margin-top: 10px;
     font-weight: bold;
-    color: #dc3545; /* Red for errors */
+    color: #dc3545; /* Error color */
 }
 
 .auth-message.success {
-    color: #28a745; /* Green for success */
+    color: #28a745; /* Success color */
 }
-
-body.dark .auth-message {
-    color: #ff6b6b;
-}
-
-body.dark .auth-message.success {
-    color: #82e0aa;
-}
-
 
 .post-container {
-    background: #f8f9fa;
-    padding: 25px;
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    background-color: #f9f9f9;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    padding: 30px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
 }
 
-body.dark .post-container {
-    background: #2b2b2b;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+.post-container .user-info {
+    text-align: right;
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+    color: #444;
+}
+
+.post-container .user-info #loggedInUsername {
+    font-weight: bold;
+    color: #1e90ff;
+}
+
+.post-container .user-info button {
+    margin-left: 15px;
 }
 
 .post-container h3 {
     color: #1e90ff;
-    margin-top: 20px;
     margin-bottom: 15px;
     font-size: 1.6rem;
 }
 
-body.dark .post-container h3 {
-    color: #63b3ed;
+.post-container input[type="text"],
+.post-container textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    box-sizing: border-box; /* Đảm bảo padding không làm tăng width */
 }
 
 .post-container textarea {
-    resize: vertical; /* Cho phép thay đổi kích thước theo chiều dọc */
+    resize: vertical; /* Cho phép thay đổi kích thước chiều dọc */
     min-height: 80px;
-    max-height: 200px;
 }
 
-.post-container button {
-    margin-top: 15px;
+.post-container button.btn {
+    width: auto;
+    padding: 10px 25px;
+    margin-top: 0;
 }
 
-.user-info {
-    font-size: 1.1rem;
-    font-weight: 500;
-    margin-bottom: 20px;
-    color: #555;
-    display: flex;
-    align-items: center;
-    gap: 10px;
+#forumPosts {
+    margin-top: 20px;
 }
 
-body.dark .user-info {
-    color: #ccc;
-}
-
-.user-info button {
-    margin-left: 10px; /* Adjust spacing for the logout button */
-    margin-bottom: 0; /* Ensure no extra margin from general button rules */
-}
-
-.forum-post {
-    background-color: #ffffff;
-    border: 1px solid #e0e0e0;
+.post {
+    background-color: #fff;
+    border: 1px solid #eee;
     border-radius: 8px;
-    padding: 15px;
+    padding: 20px;
     margin-bottom: 15px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-    transition: background-color 0.3s ease, border-color 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
-body.dark .forum-post {
-    background-color: #333;
-    border-color: #555;
-}
-
-.forum-post h4 {
+.post h4 {
     color: #1e90ff;
-    font-size: 1.3rem;
     margin-bottom: 8px;
+    font-size: 1.3rem;
 }
 
-body.dark .forum-post h4 {
-    color: #63b3ed;
-}
-
-.forum-post p {
-    font-size: 0.95rem;
-    line-height: 1.5;
+.post p {
     color: #444;
+    line-height: 1.5;
     margin-bottom: 10px;
-    white-space: pre-wrap; /* Bảo toàn khoảng trắng và ngắt dòng */
-}
-
-body.dark .forum-post p {
-    color: #bbb;
 }
 
 .post-meta {
@@ -768,6 +770,25 @@ body.dark .post-meta {
 body.dark .no-posts {
     color: #aaa;
 }
+
+/* Footer styles (updated for developer info) */
+footer .container {
+    display: flex;
+    justify-content: space-between; /* To push copyright and developer info to opposite ends */
+    align-items: center;
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.developer-info {
+    font-size: 0.8rem;
+    color: #777; /* Đã thay đổi: màu tối hơn để dễ đọc trên nền trong suốt */
+    text-align: right;
+    white-space: nowrap; /* Prevent wrapping */
+}
+
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
@@ -800,40 +821,47 @@ body.dark .no-posts {
     }
 
     main {
-        padding: 0 10px;
+        padding: 15px;
     }
 
-    .homepage-content-box,
-    .calculator-section,
-    .programming-section,
-    .forum-section {
+    .content-section {
         padding: 20px;
     }
 
-    .homepage-title {
+    .content-section h2 {
+        font-size: 1.5rem;
+    }
+
+    .homepage-features {
+        grid-template-columns: 1fr; /* Stack cards on small screens */
+    }
+
+    .calculator {
+        padding: 15px;
+    }
+
+    .calculator-display {
         font-size: 2rem;
+        padding: 10px;
     }
 
-    .homepage-welcome {
-        font-size: 1.4rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .homepage-title {
-        font-size: 1.8rem;
+    .calculator-keys button {
+        font-size: 1.2rem;
+        padding: 10px;
     }
 
-    .site-logo {
-        width: 32px;
-        height: 32px;
-    }
-    .site-name {
-        font-size: 1.1rem;
+    .auth-form,
+    .post-container {
+        padding: 20px;
     }
 
-    .btn {
-        padding: 6px 12px;
-        font-size: 0.8rem;
+    /* Footer responsive */
+    footer .container {
+        flex-direction: column; /* Stack elements on small screens */
+        gap: 5px;
+    }
+    .developer-info {
+        text-align: center; /* Center align on small screens */
+        margin-top: 5px;
     }
 }
